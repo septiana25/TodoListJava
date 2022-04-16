@@ -6,5 +6,5 @@ public interface TodoListRepository {
     Todolist[] getAll();
 
     void add(Todolist todolist);
-    void remove(Todolist todolist);
+    boolean remove(Integer number);
 }

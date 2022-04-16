@@ -8,7 +8,7 @@ import service.TodoListServiceImpl;
 
 public class TodoListServiceTest {
     public static void main(String[] args) {
-        tesAddTodoList();
+        tesHapusTodoList();
     }
 
     public static void testTodoList(){
@@ -21,12 +21,30 @@ public class TodoListServiceTest {
 
     public static void tesAddTodoList(){
         TodoListRepository todoListRepository = new TodoListRepositoryImpl();
-
-        todoListRepository.add(new Todolist("Belajar Java"));
-        todoListRepository.add(new Todolist("Belajar PHP"));
-
-
         TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        todoListService.addTodoList("Belajar Java");
+        todoListService.addTodoList("Belajar PHP");
+        todoListService.addTodoList("Belajar Golang");
+
         todoListService.showTodoList();
+    }
+
+    public  static void  tesHapusTodoList(){
+        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        todoListService.addTodoList("Belajar Java");
+        todoListService.addTodoList("Belajar PHP");
+        todoListService.addTodoList("Belajar Golang");
+
+        todoListService.showTodoList();
+
+        todoListService.removeTodoList(1);
+
+        todoListService.showTodoList();
+
+        todoListService.removeTodoList(5);
+
+        todoListService.showTodoList();
+
     }
 }
