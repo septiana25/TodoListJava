@@ -177,8 +177,9 @@ public class TodoList {
             //Batal
         }else{
             //check apakah type data int
-            boolean checkInt = input.matches("-?\\\\d+");
-            if (checkInt){
+            //boolean checkInt = Pattern.matches("\\-?\\d+", (CharSequence) input);
+            Object number = input;
+            if (number instanceof Integer){
                 boolean success = removeTodoList(Integer.valueOf(input));
                 if(!success){
                     System.out.println("Gagal Menghapus No ke-"+input);

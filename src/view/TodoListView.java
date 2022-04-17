@@ -35,10 +35,29 @@ public class TodoListView {
     }
 
     private void viewAddTodoList(){
+        System.out.println("MENAMBAH TODO LIST");
+        var input = InputUtil.input("(x) Jika Batal");
+        if (input.equals("x")){
+            //batal input
+        }else{
+            todoListService.addTodoList(input);
+        }
 
     }
 
     private void viewRemoveTodoList(){
+        System.out.println("MENGHAPUS TODO LIST");
+        var input = InputUtil.input("Nomor Urut Todo List, (x) Jika Batal");
+        if (input.equals("x")){
+            //Batal
+        }else{
+            //check apakah type data int
+            try {
+                todoListService.removeTodoList(Integer.valueOf(input));
+            }catch (Exception e){
+                System.out.println("error " +e.getMessage());
+            }
 
+        }
     }
 }
